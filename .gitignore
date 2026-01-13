@@ -1,0 +1,27 @@
+# --- Built Artifacts ---
+build/
+bin/
+gen/
+out/
+.externalNativeBuild/
+.cxx/
+
+# --- Android Studio / IDE ---
+.idea/
+*.iml
+*.iws
+*.ipr
+/captures/
+.navigation/
+
+# --- Local Environment (Private) ---
+local.properties
+.gradle/
+jdbc.properties
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- Debug/Testing ---
+*.log
