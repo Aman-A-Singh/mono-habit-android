@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.aman.singh.monohabit.ui.navigation.dashboard.DashboardScreen
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController
@@ -11,7 +12,7 @@ fun NavGraphBuilder.homeNavGraph(
 
     composable(Destination.Home.route) {
         HomeScreen(
-            onAddCheckIn = {
+            onAddHabit = {
                 navController.navigate(Destination.AddHabit.route)
             },
             onHistoryClick = {
@@ -21,7 +22,7 @@ fun NavGraphBuilder.homeNavGraph(
     }
 
     composable(Destination.AddHabit.route) {
-        AddCheckInScreen(
+        AddHabitScreen(
             onBack = { navController.popBackStack() }
         )
     }
@@ -42,18 +43,18 @@ fun NavGraphBuilder.homeNavGraph(
 
 @Composable
 fun HomeScreen(
-    onAddCheckIn: () -> Unit,
+    onAddHabit: () -> Unit,
     onHistoryClick: () -> Unit
 ) {
+    DashboardScreen(onAddHabit = onAddHabit)
 }
 
 @Composable
-fun AddCheckInScreen(
+fun AddHabitScreen(
     onBack: () -> Unit
 ) {
 
 }
-
 @Composable
 fun HistoryScreen(
     onBack: () -> Unit
