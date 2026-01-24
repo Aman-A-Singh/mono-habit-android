@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
+import com.aman.singh.monohabit.ui.navigation.addhabit.AddHabitScreen
+import com.aman.singh.monohabit.ui.navigation.dashboard.DashboardScreen
 import com.aman.singh.monohabit.ui.navigation.dashboard.DashboardScreen
 
 fun NavGraphBuilder.homeNavGraph(

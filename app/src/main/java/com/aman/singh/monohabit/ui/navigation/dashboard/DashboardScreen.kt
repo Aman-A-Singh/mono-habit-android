@@ -1,34 +1,17 @@
 package com.aman.singh.monohabit.ui.navigation.dashboard
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aman.singh.monohabit.data.HabitData
 import com.aman.singh.monohabit.model.Habit
-import com.aman.singh.monohabit.ui.theme.BackGroundColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,34 +32,34 @@ fun DashboardScreen(onAddHabit: () -> Unit) {
     val totalCount = habits.size
     val bestStreak = habits.maxOfOrNull { it.streak } ?: 0
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(BackGroundColor)
-    ) {
-        DashboardHeader(
-            completedCount = completedCount,
-            totalCount = totalCount,
-            bestStreak = bestStreak
-        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFF5F5F5))
+        ) {
+            DashboardHeader(
+                completedCount = completedCount,
+                totalCount = totalCount,
+                bestStreak = bestStreak
+            )
 
-        if (habits.isEmpty()) {
-            EmptyStateView(onAddHabit = onAddHabit)
-        } else {
-            LazyColumn(
-                contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(habits) { habit ->
-                    HabitCard(
-                        habit = habit,
-                        isEditable = true,
-                        onCheckChanged = { /* Update logic */ }
-                    )
+            if (habits.isEmpty()) {
+                EmptyStateView(onAddHabit = onAddHabit)
+            } else {
+                LazyColumn(
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(habits) { habit ->
+                        HabitCard(
+                            habit = habit,
+                            isEditable = true,
+                            onCheckChanged = { /* Update logic */ }
+                        )
+                    }
                 }
             }
         }
-    }
 }
 
 @Composable
@@ -94,18 +76,24 @@ fun DashboardHeader(
             .padding(top = 48.dp, bottom = 24.dp)
     ) {
         PaddingBox {
-            Column {
-                Text(
-                    text = "Today",
-                    color = Color.White,
-                    style = MaterialTheme.typography.labelLarge
-                )
-                Text(
-                    text = "My Habits",
-                    color = Color.White,
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold
-                )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text(
+                        text = "Today",
+                        color = Color.White.copy(alpha = 0.8f),
+                        style = MaterialTheme.typography.labelLarge
+                    )
+                    Text(
+                        text = "My Habits",
+                        color = Color.White,
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
             }
         }
 
