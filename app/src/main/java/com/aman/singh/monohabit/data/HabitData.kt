@@ -8,19 +8,7 @@ import com.aman.singh.monohabit.model.Habit
 object HabitData {
 
     private val allHabits = mutableListOf(
-        Habit(1, "Read 30 mins", 0, false, Icons.Default.MenuBook, Color(0xFF6750A4), "MenuBook"),
-        Habit(2, "Drink Water", 0, true, Icons.Default.LocalDrink, Color(0xFF006D77), "LocalDrink"),
-        Habit(3, "Morning Workout", 0, false, Icons.Default.FitnessCenter, Color(0xFFB94053), "FitnessCenter"),
-        Habit(4, "Meditate", 0, true, Icons.Default.SelfImprovement, Color(0xFF725B00), "SelfImprovement"),
-        Habit(5, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(6, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(7, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(8, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(9, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(10, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(11, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(12, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
-        Habit(13, "Write Journal", 0, false, Icons.Default.Book, Color(0xFF4A6A86), "Book"),
+        Habit(1, "Read 30 mins", 0, false, Icons.Default.MenuBook, Color(0xFF6750A4), "MenuBook")
     )
 
     fun getAllHabits(): List<Habit> {

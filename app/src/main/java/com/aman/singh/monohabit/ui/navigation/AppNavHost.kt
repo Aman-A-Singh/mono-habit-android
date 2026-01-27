@@ -12,7 +12,7 @@ fun AppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Destination.Home.route,
+        startDestination = Destination.AddHabit.route,
         modifier = modifier
     ) {
         homeNavGraph(navController)
